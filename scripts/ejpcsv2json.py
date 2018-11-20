@@ -37,7 +37,8 @@ def main(input=None, output=None):
 
     reader = csv.DictReader(fh, fieldnames=header)
     for row in reader:
-        row["generated_date"] = date_generated
+        #row["generated_date"] = date_generated
+        row["date_generated"] = date_generated
         row["imported_timestamp"] = time_now
         out(json.dumps(row))
 
