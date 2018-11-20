@@ -1,14 +1,14 @@
 """WARN: this code is run without a virtualenv
 it must not have any dependencies other than Python3"""
 
-import json, sys, csv, fileinput, datetime
+import json, csv, fileinput, datetime
 from datetime import timezone
 
 def readlines(fh, n):
     return [fh.readline().rstrip() for _ in range(0, n)]
 
 def extra_header(fh):
-    # I'm hoping this will just be the first two lines in every csv file
+    # the first two lines in every csv report file
     return list(readlines(fh, 3))
 
 def normalise(colheader):
