@@ -1,45 +1,48 @@
 {
   "fields": [
     {
-      "type": "STRING",
+      "mode": "NULLABLE",
       "name": "p_id",
-      "mode": "NULLABLE"
+      "type": "STRING"
     },
     {
-      "type": "STRING",
+      "mode": "NULLABLE",
       "name": "first_nm",
-      "mode": "NULLABLE"
+      "type": "STRING"
     },
     {
-      "type": "STRING",
+      "mode": "NULLABLE",
       "name": "last_nm",
-      "mode": "NULLABLE"
+      "type": "STRING"
     },
     {
-      "type": "STRING",
+      "mode": "NULLABLE",
       "name": "orcid",
-      "mode": "NULLABLE"
+      "type": "STRING"
     },
     {
-      "type": "STRING",
+      "mode": "NULLABLE",
       "name": "first_subject_area",
-      "mode": "NULLABLE"
+      "type": "STRING"
     },
     {
-      "type": "STRING",
+      "mode": "NULLABLE",
       "name": "second_subject_area",
-      "mode": "NULLABLE"
+      "type": "STRING"
     },
     {
-      "type": "STRING",
+      "mode": "NULLABLE",
       "name": "keywords",
-      "mode": "NULLABLE"
+      "type": "STRING"
     },
     {
-      "type": "DATE",
+      "mode": "NULLABLE",
       "name": "date_generated",
-      "mode": "NULLABLE"
+      "type": "DATE"
+    },
+    {
+      "name": "imported_timestamp",
+      "type": "TIMESTAMP"
     }
   ]
 }
-

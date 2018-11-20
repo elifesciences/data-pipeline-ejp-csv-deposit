@@ -5,7 +5,10 @@ function dump {
     project="elife-data-pipeline"
     dataset="nifidemo4_temp"
     table=$1
-    bq show --format prettyjson "$project:$dataset.$table" | jq .schema > ./schemas/$table.json
+    echo "$table"
+    # regarding --disable_ssl_validation
+    # https://issuetracker.google.com/issues/117948931
+    bq show --format prettyjson --disable_ssl_validation "$project:$dataset.$table" | jq .schema > ./schemas/$table.json
 }
 
 dump 380_datascience_early_career_researchers

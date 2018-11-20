@@ -1,29 +1,32 @@
 {
   "fields": [
     {
-      "type": "STRING",
-      "name": "id"
+      "name": "id",
+      "type": "STRING"
     },
     {
-      "type": "STRING",
-      "name": "first_name"
+      "name": "first_name",
+      "type": "STRING"
     },
     {
-      "type": "STRING",
-      "name": "last_name"
+      "name": "last_name",
+      "type": "STRING"
     },
     {
-      "type": "STRING",
-      "name": "email"
+      "name": "email",
+      "type": "STRING"
     },
     {
-      "type": "STRING",
-      "name": "secondary_email"
+      "name": "secondary_email",
+      "type": "STRING"
     },
     {
-      "type": "DATE",
-      "name": "date_generated"
+      "name": "date_generated",
+      "type": "DATE"
+    },
+    {
+      "name": "imported_timestamp",
+      "type": "TIMESTAMP"
     }
   ]
 }
-
