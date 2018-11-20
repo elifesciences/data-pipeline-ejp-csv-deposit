@@ -1,3 +1,6 @@
+"""WARN: this code is run without a virtualenv
+it must not have any dependencies other than Python3"""
+
 import json, sys, csv, fileinput, datetime
 from datetime import timezone
 
@@ -19,7 +22,6 @@ def parse_date(string):
 
 def now():
     dtobj = datetime.datetime.now(timezone.utc)
-    #return dtobj.timestamp()
     return dtobj.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def main(input=None, output=None):
