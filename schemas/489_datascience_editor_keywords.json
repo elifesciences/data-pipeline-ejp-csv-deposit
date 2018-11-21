@@ -38,7 +38,7 @@
     },
     {
       "name": "imported_timestamp",
-      "type": "STRING"
+      "type": "TIMESTAMP"
     }
   ]
 }
