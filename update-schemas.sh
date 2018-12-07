@@ -15,3 +15,4 @@ dump 380_datascience_early_career_researchers
 dump 455_datascience_editors
 dump 489_datascience_editor_keywords
 dump 705_datascience_reviewer_identity_revealed_last_week
+dump 767_datascience_person_roles
