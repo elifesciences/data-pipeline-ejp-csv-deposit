@@ -1,5 +1,4 @@
-{
-  "fields": [
+[
     {
       "mode": "NULLABLE",
       "name": "p_id",
@@ -44,5 +43,4 @@
       "name": "imported_timestamp",
       "type": "TIMESTAMP"
     }
-  ]
-}
+]

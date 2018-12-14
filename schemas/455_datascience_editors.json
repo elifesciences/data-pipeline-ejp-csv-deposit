@@ -1,5 +1,4 @@
-{
-  "fields": [
+[
     {
       "name": "id",
       "type": "STRING"
@@ -28,5 +27,4 @@
       "name": "imported_timestamp",
       "type": "TIMESTAMP"
     }
-  ]
-}
+]
