@@ -8,7 +8,7 @@ function dump {
     echo "$table"
     # regarding --disable_ssl_validation
     # https://issuetracker.google.com/issues/117948931
-    bq show --format prettyjson --disable_ssl_validation "$project:$dataset.$table" | jq .schema > ./schemas/$table.json
+    bq show --format prettyjson --disable_ssl_validation --schema "$project:$dataset.$table" > ./schemas/$table.json
 }
 
 dump 380_datascience_early_career_researchers
