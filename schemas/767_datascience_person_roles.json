@@ -10,11 +10,11 @@
     },
     {
       "name": "role_start_date",
-      "type": "TIMESTAMP"
+      "type": "STRING"
     },
     {
       "name": "role_end_date",
-      "type": "TIMESTAMP"
+      "type": "STRING"
     },
     {
       "name": "role_id",
@@ -31,6 +31,10 @@
     {
       "name": "date_generated",
       "type": "DATE"
+    },
+    {
+      "name": "imported_timestamp",
+      "type": "TIMESTAMP"
     }
   ]
 }
