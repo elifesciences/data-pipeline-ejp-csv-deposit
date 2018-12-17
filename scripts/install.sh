@@ -6,6 +6,6 @@ echo "[-] install.sh"
 
 source venv/bin/activate
 
-pip install -r requirements-frozen.txt --no-cache-dir
+pip install -r requirements.lock --no-cache-dir
 
 echo "[✓] install.sh"

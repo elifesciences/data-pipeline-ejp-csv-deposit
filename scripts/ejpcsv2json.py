@@ -1,7 +1,7 @@
 """WARN: this code is run without a virtualenv
 it must not have any dependencies other than Python3"""
 
-import json, csv, fileinput, datetime
+import sys, json, csv, fileinput, datetime
 from datetime import timezone
 
 def readlines(fh, n):
@@ -24,8 +24,16 @@ def now():
     dtobj = datetime.datetime.now(timezone.utc)
     return dtobj.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-def main(input=None, output=None):
-    fh = input or fileinput.input()
+def first(lst):
+    try:
+        return lst[0]
+    except IndexError:
+        return None
+
+def main(input=None, output=None, filename=None):
+    # fileinput.input reads sys.argv for input if we don't specify what it should be reading
+    stdin = ['-'] 
+    fh = input or fileinput.input(stdin)
     out = output or print
 
     _, generated_date_header, _ = extra_header(fh)
@@ -37,10 +45,16 @@ def main(input=None, output=None):
 
     reader = csv.DictReader(fh, fieldnames=header)
     for row in reader:
-        #row["generated_date"] = date_generated
         row["date_generated"] = date_generated
         row["imported_timestamp"] = time_now
+
+        # if a filename was given to script, use it in output
+        # absence of filename preserves previous behaviour
+        if filename:
+            row['provenance.source_filename'] = filename
+
         out(json.dumps(row))
 
 if __name__ == '__main__':
-    main()
+    args = sys.argv[1:]
+    main(filename=first(args) or None)
