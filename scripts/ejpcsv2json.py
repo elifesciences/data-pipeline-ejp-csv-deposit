@@ -31,7 +31,9 @@ def first(lst):
         return None
 
 def main(input=None, output=None, filename=None):
-    fh = input or fileinput.input(['-'])
+    # fileinput.input reads sys.argv for input if we don't specify what it should be reading
+    stdin = ['-'] 
+    fh = input or fileinput.input(stdin)
     out = output or print
 
     _, generated_date_header, _ = extra_header(fh)
