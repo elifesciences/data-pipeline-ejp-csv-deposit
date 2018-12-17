@@ -24,7 +24,7 @@ becomes
 
     > 779_datascience_reviewer_info_all
     
-use the `table-name.sh` script.
+using the [table-name.sh](./scripts/table-name.sh) script (requires [Groovy](http://www.groovy-lang.org/)).
 
 2. create a table in BigQuery 
 
