@@ -30,7 +30,12 @@ using the [table-name.sh](./scripts/table-name.sh) script (requires [Groovy](htt
 
 It should live alongside all the other report tables with this naming convention.
 
-It's fields should consist of the headers from the report as well as `date_generated` (DATE type) and `imported_timestamp` (TIMESTAMP type) fields.
+It's fields should consist of the headers from the report as well as:
+
+* `date_generated` (DATE type) 
+* `imported_timestamp` (TIMESTAMP type)
+* `provenance` (RECORD type) with sub-records:
+    - `source_filename` (STRING type)
 
 3. add reports of this new type to the `FilterByReportName` processor.
 
