@@ -19,3 +19,5 @@ dump 705_datascience_reviewer_identity_revealed_last_week
 dump 767_datascience_person_roles
 # reports 779 and 780 both go to the same table
 dump 779_datascience_reviewer_info_all
+# reports 795 and 796 both go to the same table
+dump 795_datascience_person_merge_info_all
