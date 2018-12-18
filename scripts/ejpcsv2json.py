@@ -51,7 +51,7 @@ def main(input=None, output=None, filename=None):
         # if a filename was given to script, use it in output
         # absence of filename preserves previous behaviour
         if filename:
-            row['provenance.source_filename'] = filename
+            row['provenance'] = {'source_filename': filename}
 
         out(json.dumps(row))
 
