@@ -51,3 +51,16 @@ def test_empty_fields_are_null():
         "bup": now
     }
     assert expected_row == ecj.empty_fields_are_null(row)
+
+def test_unescape_html_escaped_values():
+    row = {
+        'foo': "L&#x00E1;szl&#x00F3; Csan&#x00E1;dy",
+        'bar': "László Csanády",
+        'baz': "L&#x00E1;szl&#x00F3; Csanády",
+    }
+    expected_row = {
+        'foo': "László Csanády",
+        'bar': "László Csanády",
+        'baz': "László Csanády",
+    }
+    assert expected_row == ecj.unescape_html_escaped_values(row)
