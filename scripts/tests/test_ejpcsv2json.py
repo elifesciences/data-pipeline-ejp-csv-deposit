@@ -1,4 +1,5 @@
 import io, json, pytest
+from datetime import datetime
 from .. import ejpcsv2json as ecj
 
 simplest_fixture = '''"Query: POA Received"
@@ -34,3 +35,19 @@ def test_standard_parse_with_filename():
         {'poa_m_ms_id': '38546', 'poa_m_ms_no': '27706', 'poa_r_received_dt': '2017-04-11 15:38:47.637', 'poa_r_receipt_dt2': '2017-06-01 03:31:21.817', 'date_generated': '2018-11-18', 'imported_timestamp': '2018-11-01T23:59:59Z', 'provenance': {'source_filename': filename}},
         {'poa_m_ms_id': '42025', 'poa_m_ms_no': '30325', 'poa_r_received_dt': '2017-07-11 08:08:57.670', 'poa_r_receipt_dt2': '2017-07-26 05:14:54.213', 'date_generated': '2018-11-18', 'imported_timestamp': '2018-11-01T23:59:59Z', 'provenance': {'source_filename': filename}}]
     assert expected == actual
+
+def test_empty_fields_are_null():
+    now = datetime.now()
+    row = {
+        "foo": "",
+        "bar": " ",
+        "baz": "                                          ",
+        "bup": now, # non-empty, non-string field
+    }
+    expected_row = {
+        "foo": None,
+        "bar": None,
+        "baz": None,
+        "bup": now
+    }
+    assert expected_row == ecj.empty_fields_are_null(row)

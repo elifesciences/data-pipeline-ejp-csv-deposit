@@ -30,6 +30,13 @@ def first(lst):
     except IndexError:
         return None
 
+def empty_fields_are_null(row):
+    "mutator"
+    for key, val in row.items():
+        if isinstance(val, str) and str(val).strip() == "":
+            row[key] = None
+    return row
+
 def main(input=None, output=None, filename=None):
     # fileinput.input reads sys.argv for input if we don't specify what it should be reading
     stdin = ['-'] 
@@ -52,6 +59,8 @@ def main(input=None, output=None, filename=None):
         # absence of filename preserves previous behaviour
         if filename:
             row['provenance'] = {'source_filename': filename}
+
+        empty_fields_are_null(row)
 
         out(json.dumps(row))
 
