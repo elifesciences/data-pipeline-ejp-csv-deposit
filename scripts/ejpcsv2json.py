@@ -1,7 +1,7 @@
 """WARN: this code is run without a virtualenv
 it must not have any dependencies other than Python3"""
 
-import sys, json, csv, fileinput, datetime
+import sys, json, csv, fileinput, datetime, html
 from datetime import timezone
 
 def readlines(fh, n):
@@ -30,6 +30,13 @@ def first(lst):
     except IndexError:
         return None
 
+def unescape_html_escaped_values(row):
+    "mutator"
+    for key, val in row.items():
+        if isinstance(val, str):
+            row[key] = html.unescape(val)
+    return row
+
 def main(input=None, output=None, filename=None):
     # fileinput.input reads sys.argv for input if we don't specify what it should be reading
     stdin = ['-'] 
@@ -52,6 +59,8 @@ def main(input=None, output=None, filename=None):
         # absence of filename preserves previous behaviour
         if filename:
             row['provenance'] = {'source_filename': filename}
+
+        unescape_html_escaped_values(row)
 
         out(json.dumps(row))
 
