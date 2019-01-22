@@ -30,12 +30,20 @@ def first(lst):
     except IndexError:
         return None
 
+def empty_fields_are_null(row):
+    "mutator"
+    for key, val in row.items():
+        if isinstance(val, str) and str(val).strip() == "":
+            row[key] = None
+    return row
+
 def unescape_html_escaped_values(row):
     "mutator"
     for key, val in row.items():
         if isinstance(val, str):
             row[key] = html.unescape(val)
     return row
+
 
 def main(input=None, output=None, filename=None):
     # fileinput.input reads sys.argv for input if we don't specify what it should be reading
@@ -60,6 +68,7 @@ def main(input=None, output=None, filename=None):
         if filename:
             row['provenance'] = {'source_filename': filename}
 
+        empty_fields_are_null(row)
         unescape_html_escaped_values(row)
 
         out(json.dumps(row))
